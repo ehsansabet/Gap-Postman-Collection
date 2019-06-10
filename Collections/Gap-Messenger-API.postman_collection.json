@@ -1,0 +1,1180 @@
+{
+	"info": {
+		"_postman_id": "31f2a846-edb3-44f4-945e-6b5c1b51c0d9",
+		"name": "Gap-Messenger-API",
+		"description": "# ![gap](https://gap.im/gapmsg.ico) Gap Messenger API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "82e42296-74c3-4f41-b1f5-f0b370aeb155",
+			"name": "Send Invoice",
+			"item": [
+				{
+					"_postman_id": "865632aa-2b82-44be-b8d5-bbd6579a58e6",
+					"name": "Send Invoice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text",
+									"description": "Important! send only with chat_id (Phone number is not possible)"
+								},
+								{
+									"key": "amount",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test invoice message",
+									"sessionValue": "Test invoice message",
+									"type": "text"
+								},
+								{
+									"key": "currency",
+									"value": "IRR",
+									"sessionValue": "IRR",
+									"description": "optional [IRR, USD]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/invoice",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"invoice"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-invoice))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "f1d55bef-2f6e-4877-ae83-cc9368349591",
+					"name": "invoice Inquiry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text",
+									"description": "Important! send only with chat_id (Phone number is not possible)"
+								},
+								{
+									"key": "ref_id",
+									"value": "5bd04ea7a74ad905f8045b91",
+									"type": "text",
+									"description": "response of sendInvoice method"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/invoice/inquiry",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"invoice",
+								"inquiry"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-invoice-inquiry))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "04b97c6d-d03a-4901-bec4-9522a6361281",
+					"name": "invoice Verify",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text",
+									"description": "Important! send only with chat_id (Phone number is not possible)"
+								},
+								{
+									"key": "ref_id",
+									"value": "5bd04ea7a74ad905f8045b91",
+									"type": "text",
+									"description": "response of sendInvoice method"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/invoice/verify",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"invoice",
+								"verify"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-invoice-verify))"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "ccf6b020-e66b-42e7-81ce-adfe0ce3bc37",
+			"name": "Send Message",
+			"item": [
+				{
+					"_postman_id": "53e35506-061c-4d43-be78-68d107bc1668",
+					"name": "SendText",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "text",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "sendText method test.",
+									"type": "text"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"https://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "form",
+									"value": "[{\"name\":\"name\", \"type\":\"text\", \"label\":\"Name\"},{\"name\":\"married\", \"type\":\"radio\", \"label\":\"Married\",\"options\":[{\"y\":\"Yes\"},{\"n\":\"No\"}]},{\"name\":\"city\", \"type\":\"select\", \"label\":\"City\",\"options\":[{\"mah\":\"Mashhad\"},{\"teh\":\"Tehran\"}]},{\"name\":\"address\", \"type\":\"textarea\", \"label\":\"Address\"},{\"name\":\"test_bc\", \"type\":\"inbuilt\", \"value\":\"barcode\", \"label\":\"Scan barcode\"},{\"name\":\"test_qr\", \"type\":\"inbuilt\", \"value\":\"qrcode\", \"label\":\"Scan qr-code\"},{\"name\":\"agree\", \"type\":\"checkbox\", \"label\":\"I agree\"},{\"type\":\"submit\", \"label\":\"Save\"}]",
+									"sessionValue": "[{\"name\":\"name\", \"type\":\"text\", \"label\":\"Name\"},{\"name\":\"married\", \"type\":\"radio\", \"label\":\"Married\",\"options\":[{\"y\":\"Yes\"},{\"n\":\"No\"}]},{\"name\":\"city\", \"type\":\"select\", \"label\":\"City\",\"options\":[{\"mah\":\"Mashhad\"},{\"teh\":\"Tehran\"}]},{\"name\":\"address\", \"type\":\"textarea\", \"label\":\"Address\"},{\"name\":\"test_bc\", \"type\":\"inbuilt\", \"value\":\"barcode\", \"label\":\"Scan barcode\"},{\"name\":\"test_qr\", \"type\":\"inbuilt\", \"value\":\"qrcode\", \"label\":\"Scan qr-code\"},{\"name\":\"agree\", \"type\":\"checkbox\", \"label\":\"I agree\"},{\"type\":\"submit\", \"label\":\"Save\"}]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-text))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "057177f1-d1cb-4771-b4ba-bf7e8f62b2fd",
+					"name": "SendImages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "image",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "{\"screenshots\":{\"64\":\"https://storage.gap.im/assets/images/10/201904/2/c8123631d1-5cb1b5a27a1ed87d848be189.jpeg?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIiwic2l6ZSI6Ing2NCJ9\",\"128\":\"https://storage.gap.im/assets/images/10/201904/2/f1f26a3d11-5cb1b5a27a1ed87d848be189.jpeg?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIiwic2l6ZSI6IngxMjgifQ==\",\"256\":\"https://storage.gap.im/assets/images/10/201904/2/3c0eccadc1-5cb1b5a27a1ed87d848be189.jpeg?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIiwic2l6ZSI6IngyNTYifQ==\",\"512\":\"https://storage.gap.im/assets/images/10/201904/2/2f9a022aec-5cb1b5a27a1ed87d848be189.jpeg?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIiwic2l6ZSI6Ing1MTIifQ==\"},\"type\":\"image\",\"path\":\"https://storage.gap.im/assets/images/10/201904/2/568e2596b5-5cb1b5a27a1ed87d848be189.jpeg?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIn0=\",\"tags\":null,\"width\":512,\"height\":512,\"duration\":null,\"filesize\":18527,\"filename\":\"image001.jpeg\",\"desc\":\"Test image message\"}",
+									"type": "text",
+									"description": "response of upload  method"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-image))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "d0f866d3-c66b-40fc-904f-9d9d7cd302d4",
+					"name": "SendVideo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "video",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "{\"screenshots\":{\"64\":\"https://storage.gap.im/assets/images/10/201904/2/ef94a9f85a-5cb1ba007a1ed8ceea8b48c3.mp4.jpg?configs=eyJzaG90IjoiMTAlIiwiYmFja2dyb3VuZCI6ImZmZmZmZiIsInZpZGVvIjoiMjAxOTA0XC8yXC81Y2IxYmEwMDdhMWVkOGNlZWE4YjQ4YzMubXA0Iiwic2l6ZSI6Ing2NCJ9\",\"128\":\"https://storage.gap.im/assets/images/10/201904/2/31ad23b6c9-5cb1ba007a1ed8ceea8b48c3.mp4.jpg?configs=eyJzaG90IjoiMTAlIiwiYmFja2dyb3VuZCI6ImZmZmZmZiIsInZpZGVvIjoiMjAxOTA0XC8yXC81Y2IxYmEwMDdhMWVkOGNlZWE4YjQ4YzMubXA0Iiwic2l6ZSI6IngxMjgifQ==\",\"256\":\"https://storage.gap.im/assets/images/10/201904/2/02680118d9-5cb1ba007a1ed8ceea8b48c3.mp4.jpg?configs=eyJzaG90IjoiMTAlIiwiYmFja2dyb3VuZCI6ImZmZmZmZiIsInZpZGVvIjoiMjAxOTA0XC8yXC81Y2IxYmEwMDdhMWVkOGNlZWE4YjQ4YzMubXA0Iiwic2l6ZSI6IngyNTYifQ==\",\"512\":\"https://storage.gap.im/assets/images/10/201904/2/efa11ddab0-5cb1ba007a1ed8ceea8b48c3.mp4.jpg?configs=eyJzaG90IjoiMTAlIiwiYmFja2dyb3VuZCI6ImZmZmZmZiIsInZpZGVvIjoiMjAxOTA0XC8yXC81Y2IxYmEwMDdhMWVkOGNlZWE4YjQ4YzMubXA0Iiwic2l6ZSI6Ing1MTIifQ==\"},\"type\":\"video\",\"path\":\"https://storage.gap.im/assets/media/10/201904/2/ab638d6d5e-5cb1ba007a1ed8ceea8b48c3.mp4?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIn0=\",\"tags\":null,\"width\":3840,\"height\":2160,\"duration\":6.54802,\"filesize\":522778,\"filename\":\"video.mp4\",\"desc\":\"Test video message\"}",
+									"type": "text",
+									"description": "response of upload  method"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-video))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "a2e5fc72-832f-4ba0-9f0d-1273f7914bff",
+					"name": "SendAudio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "audio",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "{\"screenshots\":null,\"type\":\"audio\",\"path\":\"https://storage.gap.im/assets/media/10/201904/2/4de308d979-5cb1ba6a7a1ed87eea8b48a9.mp3?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIn0=\",\"tags\":{\"major_brand\":\"mp42\",\"minor_version\":\"0\",\"compatible_brands\":\"isommp42\",\"encoder\":\"Lavf57.19.100\",\"filename\":\"audio.mp3\"},\"width\":null,\"height\":null,\"duration\":128,\"filesize\":3072138,\"filename\":\"audio.mp3\",\"desc\":\"Test audio message\"}",
+									"type": "text",
+									"description": "response of upload  method"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-audio))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "1f84e9f2-d011-4e4e-91f9-f86f12e65d5c",
+					"name": "SendVoice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "voice",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "{\"screenshots\":null,\"type\":\"voice\",\"path\":\"https://storage.gap.im/assets/media/10/201904/2/a06b54c3b4-5cb1bc0d7a1ed87fea8b4893.ogg?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIn0=\",\"tags\":null,\"width\":null,\"height\":null,\"duration\":0.8745,\"filesize\":2830,\"filename\":\"voice.ogg\",\"desc\":\"Test voice message\"}",
+									"type": "text",
+									"description": "response of upload  method"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-voice))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "70c79057-0771-4955-bd22-ed13820aa8bf",
+					"name": "SendFile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "file",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "{\"screenshots\":null,\"type\":\"file\",\"path\":\"https://storage.gap.im/assets/file/10/201904/2/70518498d9-5cb1bcab7a1ed885848be257?configs=eyJiYWNrZ3JvdW5kIjoiZmZmZmZmIn0=\",\"tags\":null,\"width\":null,\"height\":null,\"duration\":null,\"filesize\":6527,\"filename\":\"file.pdf\",\"desc\":\"Test file message\"}",
+									"type": "text",
+									"description": "response of upload  method"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-file))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "9f00fc2c-91ea-47e3-8d76-d3fb6a1e08b4",
+					"name": "SendContact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "contact",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "{\"phone\":\"+989123456789\",\"name\":\"Name Family\"}",
+									"type": "text"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-contact))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "b5dd14cc-26c8-4b4a-845a-bb8d4fe48c46",
+					"name": "SendLocation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "location",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "{\"lat\":\"36.26\",\"long\":\"59.61\",\"desc\":\"Mashhad\"}",
+									"type": "text"
+								},
+								{
+									"key": "reply_keyboard",
+									"value": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"sessionValue": "{\"keyboard\":[[{\"yes\":\"YES\"},{\"no\":\"NO\"}],[{\"cancel\":\"CANCEL\"}]]}",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "inline_keyboard",
+									"value": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/sendMessage",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"sendMessage"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-location))"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "f3faa38c-c583-42a9-ba3e-9782f71cd3e3",
+			"name": "Game Center",
+			"item": [
+				{
+					"_postman_id": "3e907caa-c6b1-4836-899f-be8061d03651",
+					"name": "Leader Board",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"description": "Important! send only with chat_id (Phone number is not possible)",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "all",
+									"description": "optional [all, month, week, day]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/leaderBoard",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"leaderBoard"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-leaderboard))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "2674d204-3fd0-4de7-b134-0490b475ce37",
+					"name": "Set Game Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"description": "Important! send only with chat_id (Phone number is not possible)",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "high_score",
+									"description": "[setting, meta, custom, high_score]",
+									"type": "text"
+								},
+								{
+									"key": "data",
+									"value": "100",
+									"sessionValue": "100",
+									"description": "The values you want to save",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/gameData",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"gameData"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-game-data))"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "d1b72e6f-b0b5-4922-82a9-5029b47a81e7",
+					"name": "Get Game Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chat_id",
+									"value": "{{chat_id}}",
+									"description": "Important! send only with chat_id (Phone number is not possible)",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "high_score",
+									"description": "[setting, meta, custom, high_score]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_url}}/getGameData",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"getGameData"
+							]
+						},
+						"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-get-game-data))"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "a71b53dd-46be-4ae1-9e6d-c237b307a75e",
+			"name": "Upload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c26eee0b-bb74-425f-b1a8-003dce18f038",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "chat_id",
+							"value": "{{chat_id}}",
+							"sessionValue": "{{chat_id}}",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"sessionValue": {
+								"0": {}
+							},
+							"description": "optional",
+							"type": "file"
+						},
+						{
+							"key": "video",
+							"sessionValue": {
+								"0": {}
+							},
+							"description": "optional",
+							"type": "file",
+							"disabled": true
+						},
+						{
+							"key": "voice",
+							"sessionValue": {
+								"0": {}
+							},
+							"description": "optional",
+							"type": "file",
+							"disabled": true
+						},
+						{
+							"key": "audio",
+							"sessionValue": {
+								"0": {}
+							},
+							"description": "optional",
+							"type": "file",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"sessionValue": {
+								"0": {}
+							},
+							"description": "optional",
+							"type": "file",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host_url}}/upload",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"upload"
+					]
+				},
+				"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-upload))"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "76fd7f91-28a0-499f-81f1-a7dbeb037fad",
+			"name": "SendAction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "chat_id",
+							"value": "{{chat_id}}",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "typing",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host_url}}/sendAction",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"sendAction"
+					]
+				},
+				"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-action))"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "fbe1d466-297a-4b2f-ad0a-5474721ad885",
+			"name": "EditMessage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "chat_id",
+							"value": "{{chat_id}}",
+							"type": "text"
+						},
+						{
+							"key": "message_id",
+							"value": "101",
+							"type": "text",
+							"description": "response of sendMessage method"
+						},
+						{
+							"key": "data",
+							"value": "Edit message method test.",
+							"type": "text"
+						},
+						{
+							"key": "inline_keyboard",
+							"value": "[[{\"text\":\"Click me!\",\"url\":\"https://gap.im\"}]]",
+							"sessionValue": "[[{\"text\":\"YES\",\"cb_data\":\"yes\"},{\"text\":\"NO\",\"cb_data\":\"no\"}],[{\"text\":\"Click me!\",\"url\":\"http://gap.im\"}]]",
+							"description": "optional",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host_url}}/editMessage",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"editMessage"
+					]
+				},
+				"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-edit-message))"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ccaccc21-5e07-49e4-80c9-f454645bfdbf",
+			"name": "DeleteMessage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "chat_id",
+							"value": "{{chat_id}}",
+							"type": "text"
+						},
+						{
+							"key": "message_id",
+							"value": "101",
+							"type": "text",
+							"description": "response of sendMessage method"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host_url}}/deleteMessage",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"deleteMessage"
+					]
+				},
+				"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-delete-message))"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ca630b91-d268-4657-ac41-1aeed301b0b4",
+			"name": "AnswerCallback",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "chat_id",
+							"value": "{{chat_id}}",
+							"type": "text"
+						},
+						{
+							"key": "callback_id",
+							"value": "XoXN/QCEMd4JeICk",
+							"type": "text",
+							"description": "آی‌دی دکمه کلیک شده توسط کاربر، که هنگام کلیک بصورت triggerButton برای برنامه توسعه دهنده ارسال می‌شود."
+						},
+						{
+							"key": "text",
+							"value": "Test answer callback",
+							"sessionValue": "Test ",
+							"type": "text"
+						},
+						{
+							"key": "show_alert",
+							"value": "true",
+							"sessionValue": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host_url}}/answerCallback",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"answerCallback"
+					]
+				},
+				"description": "![gap](https://gap.im/gapmsg.ico) See the documentation for this method ([click me](https://my.gap.im/doc/botplatform#method-send-answer-callback))"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "36886ef2-2aaf-48e0-beb4-4c63fcb57126",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8bcd67fb-fe36-47c2-8aa7-4c0b83b6216b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "573277da-88ea-4f99-be56-454cb39ecaa1",
+			"key": "host_url",
+			"value": "https://api.gap.im",
+			"type": "string"
+		},
+		{
+			"id": "0b176010-3312-416c-9c08-6872b4d0f540",
+			"key": "token",
+			"value": "YOUR_ROBOT_TOKEN",
+			"type": "string"
+		},
+		{
+			"id": "f1caa3a9-1bb4-4742-a6d5-4de52579d07e",
+			"key": "chat_id",
+			"value": "YOUR_CHAT_ID",
+			"type": "string"
+		}
+	]
+}
